@@ -14,19 +14,6 @@ The SocialPush-Frontend project is a web application that allows users to manage
 - Platform integration: The application integrates with popular social media platforms to publish posts directly.
 - Analytics: Users can track the performance of their posts, including engagement metrics and reach.
 
-## Installation
-
-To run the SocialPush-Frontend project locally, follow these steps:
-
-1. Clone the repository: `git clone https://github.com/your-username/SocialPush-Frontend.git`
-2. Install the dependencies: `npm install`
-3. Start the development server: `npm start`
-4. Open your browser and navigate to `http://localhost:3000`
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ## Contact
 
 For any inquiries or feedback, please contact us at [aps.socialpush@gmail.com](mailto:aps.socialpush@gmail.com).
