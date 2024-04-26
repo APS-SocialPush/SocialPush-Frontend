@@ -35,7 +35,7 @@ const buttons2 = [
     { text: 'Settings', icon: <TuneIcon color="inherit" /> }
 ];
 
-export default function MenuPrincipal() {
+export default function MenuLateral() {
     return (
         <Box sx={{ display: 'flex' }}>
             <Drawer
@@ -53,7 +53,7 @@ export default function MenuPrincipal() {
                 variant="permanent"
                 anchor="left"
             >
-                <Toolbar style={{display:'flex', marginTop:'30px', marginBottom:'30px', marginleft: '10px'}}>
+                <Toolbar style={{display:'flex', marginTop:'30px', marginBottom:'30px', marginLeft:'20px'}}>
                     <img src={myIcon} alt="My Icon" style={{ marginRight: '10px' }} />
                     SocialPush
                 </Toolbar>
