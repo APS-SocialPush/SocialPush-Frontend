@@ -1,0 +1,18 @@
+ body{
+    background: radial-gradient(circle 1200px at center, #2a1b4d, #0a091a);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    min-height: 100vh;
+    position: relative;
+}
+
+.foreground-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 1000px;
+    height: 800px;
+}
