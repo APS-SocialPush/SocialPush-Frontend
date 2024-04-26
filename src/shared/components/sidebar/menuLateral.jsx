@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,7 +9,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import myIcon from '/sideicon.png';
 
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
@@ -18,48 +18,51 @@ import HomeIcon from '@mui/icons-material/Home';
 import TuneIcon from '@mui/icons-material/Tune';
 import LogoutIcon from '@mui/icons-material/Logout';
 
+import myIcon from '/sideicon.png';
+import './menuLateral.css';
+
 const drawerWidth = 240;
 
 const buttons = [
-    { text: 'Home', icon: <HomeIcon color="inherit"/> },
-    { text: 'Dashboard', icon: <DashboardIcon color="inherit"/> },
-    { text: 'Post', icon: <PostAddIcon color="inherit"/> },
-    { text: 'Profile', icon: <PersonOutlineIcon color="inherit"/> }
+    { text: 'Home', icon: <HomeIcon color="inherit" /> },
+    { text: 'Dashboard', icon: <DashboardIcon color="inherit" /> },
+    { text: 'Post', icon: <PostAddIcon color="inherit" /> },
+    { text: 'Profile', icon: <PersonOutlineIcon color="inherit" /> }
 ];
 
 const buttons2 = [
-    { text: 'Support', icon: <SupportAgentIcon color="inherit"/> },
-    { text: 'Settings', icon: <TuneIcon color="inherit"/> },
-    { text: 'Log out', icon: <LogoutIcon color="inherit"/> }
+    { text: 'Support', icon: <SupportAgentIcon color="inherit" /> },
+    { text: 'Settings', icon: <TuneIcon color="inherit" /> }
 ];
 
 export default function PermanentDrawerLeft() {
     return (
         <Box sx={{ display: 'flex' }}>
             <Drawer
-
                 sx={{
                     width: drawerWidth,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
                         width: drawerWidth,
                         boxSizing: 'border-box',
-                        background: 'linear-gradient(to right, #0E0C26, #221245)',
+                        background: '#221245',
                         color: 'white',
+                        borderRadius: '0px 20px 20px 0px',
                     },
                 }}
                 variant="permanent"
                 anchor="left"
-            >   <Toolbar style={{ display: 'flex' }}>
+            >
+                <Toolbar className="toolbar">
                     <img src={myIcon} alt="My Icon" style={{ marginRight: '10px' }} />
                     SocialPush
                 </Toolbar>
-                <Divider style={{ backgroundColor: '#ffffff' }} />
+
                 <List>
                     {buttons.map((button) => (
                         <ListItem key={button.text} disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon style={{ color: 'white' }}> 
+                            <ListItemButton className="listItemButton">
+                                <ListItemIcon className="listItemIcon">
                                     {button.icon}
                                 </ListItemIcon>
                                 <ListItemText primary={button.text} />
@@ -67,18 +70,26 @@ export default function PermanentDrawerLeft() {
                         </ListItem>
                     ))}
                 </List>
-                <Divider style={{ backgroundColor: '#ffffff' }} />
-                <List>
+                <List sx={{ marginTop: 'auto' }}>
                     {buttons2.map((button) => (
                         <ListItem key={button.text} disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon style={{ color: 'white' }}>
+                            <ListItemButton className="listItemButton">
+                                <ListItemIcon className="listItemIcon">
                                     {button.icon}
                                 </ListItemIcon>
                                 <ListItemText primary={button.text} />
                             </ListItemButton>
                         </ListItem>
                     ))}
+                    <Divider className="divider" />
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon className="listItemIcon" style={{ marginLeft: '20px' }}>
+                                <LogoutIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Log out" />
+                        </ListItemButton>
+                    </ListItem>
                 </List>
             </Drawer>
         </Box>
