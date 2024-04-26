@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -19,15 +20,14 @@ import TuneIcon from '@mui/icons-material/Tune';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 import myIcon from '/sideicon.png';
-import './menuLateral.css';
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
-const buttons = [
-    { text: 'Home', icon: <HomeIcon color="inherit" /> },
-    { text: 'Dashboard', icon: <DashboardIcon color="inherit" /> },
-    { text: 'Post', icon: <PostAddIcon color="inherit" /> },
-    { text: 'Profile', icon: <PersonOutlineIcon color="inherit" /> }
+const buttonsMenu = [
+    { text: 'Home', icon: <HomeIcon color="inherit" />, path: '/home'},
+    { text: 'Dashboard', icon: <DashboardIcon color="inherit" />, path: '/dashboard'},
+    { text: 'Post', icon: <PostAddIcon color="inherit" />, path: '/post'},
+    { text: 'Profile', icon: <PersonOutlineIcon color="inherit"/>, path: '/profile' },
 ];
 
 const buttons2 = [
@@ -35,7 +35,7 @@ const buttons2 = [
     { text: 'Settings', icon: <TuneIcon color="inherit" /> }
 ];
 
-export default function PermanentDrawerLeft() {
+export default function MenuPrincipal() {
     return (
         <Box sx={{ display: 'flex' }}>
             <Drawer
@@ -53,16 +53,16 @@ export default function PermanentDrawerLeft() {
                 variant="permanent"
                 anchor="left"
             >
-                <Toolbar className="toolbar">
+                <Toolbar style={{display:'flex', marginTop:'30px', marginBottom:'30px', marginleft: '10px'}}>
                     <img src={myIcon} alt="My Icon" style={{ marginRight: '10px' }} />
                     SocialPush
                 </Toolbar>
 
                 <List>
-                    {buttons.map((button) => (
+                    {buttonsMenu.map((button) => (
                         <ListItem key={button.text} disablePadding>
-                            <ListItemButton className="listItemButton">
-                                <ListItemIcon className="listItemIcon">
+                            <ListItemButton component={Link} to={button.path} style={{marginLeft:'30px'}}>
+                                <ListItemIcon style={{color:'white'}}>
                                     {button.icon}
                                 </ListItemIcon>
                                 <ListItemText primary={button.text} />
@@ -70,27 +70,31 @@ export default function PermanentDrawerLeft() {
                         </ListItem>
                     ))}
                 </List>
+
                 <List sx={{ marginTop: 'auto' }}>
                     {buttons2.map((button) => (
                         <ListItem key={button.text} disablePadding>
-                            <ListItemButton className="listItemButton">
-                                <ListItemIcon className="listItemIcon">
+                            <ListItemButton style={{marginLeft:'30px'}}>
+                                <ListItemIcon style={{color:'white'}}>
                                     {button.icon}
                                 </ListItemIcon>
                                 <ListItemText primary={button.text} />
                             </ListItemButton>
                         </ListItem>
                     ))}
-                    <Divider className="divider" />
+
+                    <Divider style={{ backgroundColor: '#ffffff', width: '75%', margin: '0 auto' }} />
+
                     <ListItem disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon className="listItemIcon" style={{ marginLeft: '20px' }}>
+                        <ListItemButton style={{marginLeft:'30px'}}>
+                            <ListItemIcon style={{color:'white'}}>
                                 <LogoutIcon />
                             </ListItemIcon>
                             <ListItemText primary="Log out" />
                         </ListItemButton>
                     </ListItem>
                 </List>
+                
             </Drawer>
         </Box>
     );
