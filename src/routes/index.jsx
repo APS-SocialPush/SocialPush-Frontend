@@ -1,18 +1,25 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import MenuLateral  from '../shared/components/sidebar/menuLateral';
 import { HomePage } from '../pages/home/HomePage';
+import { PostPage } from '../pages/post/postPage';
+import { ProfilePag } from '../pages/profile/ProfilePage';
+import { DashPage } from '../pages/dashboard/DashBoardPage';
+import { Cabecalho } from '../shared/components/cabec/cabecalho';
+
+
 
 const HomeRoutes = () => (
     <div style={{display:'grid', gridTemplateColumns:'300px 1fr'}}>
         <div>
             <MenuLateral />
         </div>
-        <div>
+        <div style={{zIndex: 1, position: 'relative'}}>
+            <Cabecalho />
             <Routes>
                 <Route path="/home" element={<HomePage />} />
-                <Route path="/dashboard" element={<h1>Dashboard</h1>} />
-                <Route path="/post" element={<h1>post</h1>} />
-                <Route path="/profile" element={<h1>profile</h1>} />
+                <Route path="/dashboard" element={<DashPage />} />
+                <Route path="/post" element={<PostPage />} />
+                <Route path="/profile" element={<ProfilePag />} />
                 <Route path="/" element={<Navigate to = "/home" />} />
             </Routes>
         </div>
