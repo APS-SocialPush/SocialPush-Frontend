@@ -1,9 +1,9 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import MenuLateral  from '../shared/components/sidebar/menuLateral';
 import { HomePage } from '../pages/home/HomePage';
-import { PostPage } from '../pages/post/postPage';
+import { PostPage } from '../pages/post/PostPage';
 import { ProfilePag } from '../pages/profile/ProfilePage';
-import { DashPage } from '../pages/dashboard/DashBoardPage';
+import { DashPage } from '../pages/dashboard/DashboardPage';
 import { Cabecalho } from '../shared/components/cabec/cabecalho';
 
 
